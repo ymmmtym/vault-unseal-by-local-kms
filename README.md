@@ -1,20 +1,35 @@
 # vault-unseal-by-local-kms
 
-
 ```bash
 docker-compose up -d
 docker-compose exec vault /bin/sh
 ```
 
 ```bash
-$ vault operator init
-Recovery Key 1: 0FphzTIpVaCT80LzjNo74HsIMGtkS2lgDiTcNJNzvVp9
-Recovery Key 2: YQ1kIdP5mPnyWtWK6PJU7pr7H1v5roC06+nWU0DdGGd4
-Recovery Key 3: Ucol6g7nyRguBh4CQInNPGy2LbuPtGxWLo6Ny12byhlw
-Recovery Key 4: ObhojZUanlTDC36hQyIp6b3IMFp4vCbXh74lClLjDIT1
-Recovery Key 5: XO6pbMu/apJmHwxLtp3mRluAGIbsEYuSrfZh0BN8vBBt
+$ vault status
+Key                      Value
+---                      -----
+Seal Type                awskms
+Recovery Seal Type       n/a
+Initialized              false
+Sealed                   true
+Total Recovery Shares    0
+Threshold                0
+Unseal Progress          0/0
+Unseal Nonce             n/a
+Version                  1.19.5
+Build Date               2025-05-29T09:17:06Z
+Storage Type             file
+HA Enabled               false
 
-Initial Root Token: hvs.TMSr5mfGeFEbRUaLme69Hx13
+$ vault operator init
+Recovery Key 1: ============================================
+Recovery Key 2: ============================================
+Recovery Key 3: ============================================
+Recovery Key 4: ============================================
+Recovery Key 5: ============================================
+
+Initial Root Token: ============================
 
 Success! Vault is initialized
 
@@ -24,15 +39,16 @@ securely distribute the key shares printed above.
 $ vault status
 Key                      Value
 ---                      -----
+Seal Type                awskms
 Recovery Seal Type       shamir
 Initialized              true
 Sealed                   false
 Total Recovery Shares    5
 Threshold                3
-Version                  1.13.3
-Build Date               2023-06-06T18:12:37Z
+Version                  1.19.5
+Build Date               2025-05-29T09:17:06Z
 Storage Type             file
-Cluster Name             vault-cluster-3b0538b1
-Cluster ID               bb201918-ef76-4569-f574-e0540fd1f88a
+Cluster Name             vault-cluster-97d0ef6c
+Cluster ID               81f8a9ce-5048-1f2b-d717-329071953b87
 HA Enabled               false
-```
+`````
